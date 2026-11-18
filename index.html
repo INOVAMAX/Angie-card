@@ -15,14 +15,10 @@
         body {
             font-family: 'Comic Neue', cursive, sans-serif;
             overflow-x: hidden;
-            /* Fondo inicial negro */
             background-color: #000000;
             transition: background 1s ease;
         }
 
-        /* -------------------------------------------------------------
-           ESTILOS DEL SOBRE INICIAL Y TROLL BUTTON (ROJOS OSCUROS)
-        ------------------------------------------------------------- */
         .envelope-wrapper {
             perspective: 1000px;
         }
@@ -31,7 +27,7 @@
             position: relative;
             width: 320px;
             height: 220px;
-            background-color: #881337; /* Rojo borgoña / vino oscuro */
+            background-color: #881337;
             border-bottom-left-radius: 16px;
             border-bottom-right-radius: 16px;
             box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6), 0 10px 10px rgba(0, 0, 0, 0.4);
@@ -45,7 +41,6 @@
             }
         }
 
-        /* Top Flap */
         .envelope .flap {
             position: absolute;
             top: 0;
@@ -54,7 +49,7 @@
             height: 0;
             border-left: 160px solid transparent;
             border-right: 160px solid transparent;
-            border-top: 130px solid #4c0519; /* Vino muy oscuro */
+            border-top: 130px solid #4c0519;
             transform-origin: top;
             transition: transform 0.8s ease, z-index 0.2s ease;
             z-index: 5;
@@ -69,7 +64,6 @@
             }
         }
 
-        /* Envelope Inner Pocket Side Folds */
         .envelope .pocket {
             position: absolute;
             bottom: 0;
@@ -94,7 +88,6 @@
             }
         }
 
-        /* TEXTO EN LA PARTE INFERIOR IZQUIERDA DEL SOBRE */
         .envelope-text {
             position: absolute;
             bottom: 20px;
@@ -118,7 +111,6 @@
             opacity: 0;
         }
 
-        /* Wax Seal Stamp (Perfectamente centrado) */
         .wax-seal {
             position: absolute;
             top: 50%;
@@ -167,9 +159,6 @@
             z-index: 50;
         }
 
-        /* -------------------------------------------------------------
-           1. TARJETA PRINCIPAL
-        ------------------------------------------------------------- */
         .card-strawberry-bg {
             background-color: #2a080c; 
             background-image: url('fresita.png');
@@ -178,20 +167,12 @@
             animation: shakePattern 1.2s infinite ease-in-out;
         }
 
-        /* -------------------------------------------------------------
-           2. PANTALLA FINAL
-        ------------------------------------------------------------- */
-        .final-page-bg {
-            background-color: #dbeafe; 
-        }
-
         .card-blueberry-bg {
             background-color: #0A192F;
             background-image: url('morita.png');
             background-repeat: repeat;
             background-size: 55px 55px;
             animation: shakePattern 1.2s infinite ease-in-out;
-
         }
 
         @keyframes shakePattern {
@@ -202,33 +183,29 @@
             100% { background-position: 0px 0px; }
         }
 
-@keyframes fallMissile {
-    0% { transform: translateY(-120vh) scale(0.7) rotate(10deg); opacity: 1; }
-    80% { transform: translateY(0vh) scale(1) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(30px) scale(3) rotate(0deg); opacity: 1; }
-}
+        @keyframes fallMissile {
+            0% { transform: translateY(-120vh) scale(0.7) rotate(10deg); opacity: 1; }
+            80% { transform: translateY(0vh) scale(1) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(30px) scale(3) rotate(0deg); opacity: 1; }
+        }
 
-.missile-anim {
-    /* Mantenemos tu animación original */
-    animation: fallMissile 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    
-    /* Nuevos estilos para la imagen */
-    width: 60px; /* Ajusta el ancho según lo que necesites */
-    height: auto; /* Mantiene la proporción de la imagen */
-    object-fit: contain;
-    position: absolute; /* Asegúrate de que tenga posicionamiento para que caiga bien */
-    /* top: ...; left: ...; */
-}
+        .missile-anim {
+            animation: fallMissile 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            width: 60px;
+            height: auto;
+            object-fit: contain;
+            position: absolute;
+        }
 
-@keyframes explosionFlash {
-    0% { transform: scale(0); opacity: 0; }
-    50% { transform: scale(1.5); opacity: 0.9; background-color: #3b82f6; }
-    100% { transform: scale(35); opacity: 1; background-color: #ffffff; }
-}
+        @keyframes explosionFlash {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.5); opacity: 0.9; background-color: #3b82f6; }
+            100% { transform: scale(35); opacity: 1; background-color: #ffffff; }
+        }
 
-.explosion-circle {
-    animation: explosionFlash 0.7s ease-out forwards;
-}
+        .explosion-circle {
+            animation: explosionFlash 0.7s ease-out forwards;
+        }
 
         @keyframes violentShake {
             0% { transform: translate(0, 0); }
@@ -248,17 +225,12 @@
 
     <!-- PANTALLA INICIAL: SOBRE TROLL -->
     <div id="envelope-screen" class="flex flex-col items-center justify-center w-full max-w-xl z-20 transition-all duration-700">
-
-        <!-- Envelope Wrapper -->
         <div class="envelope-wrapper mb-8 flex justify-center items-center w-full">
             <div id="envelope" class="envelope">
-                
-                <!-- TEXTO EN LA PARTE INFERIOR DEL SOBRE -->
                 <div class="envelope-text">
                     <p class="text-lg md:text-xl font-bold tracking-wide">De: Jon</p>
                     <p class="text-lg md:text-xl font-bold tracking-wide">Para: Angie</p>
                 </div>
-
                 <div class="flap"></div>
                 <div class="wax-seal" onclick="openEnvelope()">
                     <span>Abrir</span>
@@ -268,7 +240,6 @@
             </div>
         </div>
 
-        <!-- Botón Troll con estilo oscuro y elegante -->
         <div id="envelope-buttons" class="relative w-full h-20 flex items-center justify-center gap-6 z-30">
             <button id="btn-no" onmouseover="teleportButton(this)" onclick="teleportButton(this)" ontouchstart="teleportButton(this)" class="px-6 py-3.5 bg-[#1a0509]/90 text-rose-200 font-bold text-lg rounded-2xl shadow-md border-2 border-rose-900 hover:bg-[#2a080c] flex items-center gap-2 cursor-pointer">
                 <span>No quelo 😡</span>
@@ -278,7 +249,6 @@
 
     <!-- TARJETA PRINCIPAL DE ANGIE -->
     <div id="main-container" class="card-strawberry-bg w-full max-w-md rounded-3xl shadow-2xl p-6 md:p-8 flex-col items-center border-4 border-rose-900 relative overflow-hidden transition-all duration-500 hidden z-10">
-        
         <div class="flex flex-row items-center justify-center gap-4 w-full mb-6">
             <img src="FresitaG.png" alt="Fresita Gato" class="w-28 h-28 md:w-32 md:h-32 object-contain" onerror="this.src='https://placehold.co/128x128/fda4af/ffffff?text=FresitaG'">
             <span class="text-pink-100 font-bold text-lg md:text-xl text-center px-2">
@@ -306,37 +276,58 @@
         <div class="w-20 h-20 rounded-full explosion-circle"></div>
     </div>
 
-    <!-- Pantalla Final / Video -->
-    <div id="screen-white" class="fixed inset-0 bg-white z-50 hidden flex flex-col items-center justify-center">
-    <!-- Reemplazamos la etiqueta <video> por un iframe adaptado a pantalla completa -->
-    <iframe id="surprise-video" class="w-full h-full border-0 hidden" 
-        src="https://www.youtube.com/embed/247oIAcJ5tg?enablejsapi=1" 
-        title="YouTube video player" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen>
-    </iframe>
-</div>
+    <!-- PANTALLA DEL VIDEO DE YOUTUBE -->
+    <div id="screen-white" class="fixed inset-0 bg-black z-50 hidden flex flex-col items-center justify-center">
+        <!-- Iframe con soporte para la API de YouTube -->
+        <iframe id="surprise-video" class="w-full h-full border-0" 
+            src="https://www.youtube.com/embed/247oIAcJ5tg?enablejsapi=1&autoplay=1" 
+            title="YouTube video player" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
 
-        <div id="final-screen" class="fixed inset-0 card-blueberry-bg hidden flex flex-col items-center justify-center p-6 text-center">
-            <div class="bg-[#e0e7ff] border-4 border-blue-200 rounded-3xl p-6 md:p-8 max-w-md shadow-2xl relative overflow-hidden flex flex-col items-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
-                    Unas palabritas para la niña mas hemorsa;3
-                </h2>
-<hr>
-                <p class="text-lg md:text-xl text-blue-900 leading-relaxed font-bold">
-                  💙 Me gusta esa cancion porque siento que expresa lo que siento cuando estoy con vos o estamos hablando en insta o cuando estamos jugando un juegito jsjs, pero wueno, hoy es tu cumpleaños y os deseo un lindisimo dia, deverdad espero que tengas muchas alegrias y si necesitas sonreir, estare yio todo el dia si quieres que hablemos:3, vive muy feliz este dia y el resto porque solo vas a tener 16 años una vez en tu vida, tambien espero que os haya gustado mucho esta sorpresita que prepare con mucho amor y cariño especialmente para vos, yia para despedirme quiero que sepas que yio Jon, os amo mucho Angie y te quiero un moooooooooooooooooooooooooooooooonton, ten un abacho virtual:3, bayyyyyyyy. 💙
-                </p>
-  
-            </div>
+    <!-- PANTALLA FINAL (PALABRITAS) -->
+    <div id="final-screen" class="fixed inset-0 card-blueberry-bg hidden flex flex-col items-center justify-center p-6 text-center z-50">
+        <div class="bg-[#e0e7ff] border-4 border-blue-200 rounded-3xl p-6 md:p-8 max-w-md shadow-2xl relative overflow-hidden flex flex-col items-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-600 mb-4">
+                Unas palabritas para la niña mas hemorsa;3
+            </h2>
+            <hr class="w-full border-blue-300 my-2">
+            <p class="text-lg md:text-xl text-blue-900 leading-relaxed font-bold">
+                💙 Me gusta esa cancion porque siento que expresa lo que siento cuando estoy con vos o estamos hablando en insta o cuando estamos jugando un juegito jsjs, pero wueno, hoy es tu cumpleaños y os deseo un lindisimo dia, deverdad espero que tengas muchas alegrias y si necesitas sonreir, estare yio todo el dia si quieres que hablemos:3, vive muy feliz este dia y el resto porque solo vas a tener 16 años una vez en tu vida, tambien espero que os haya gustado mucho esta sorpresita que prepare con mucho amor y cariño especialmente para vos, yia para despedirme quiero que sepas que yio Jon, os amo mucho Angie y te quiero un moooooooooooooooooooooooooooooooonton, ten un abacho virtual:3, bayyyyyyyy. 💙
+            </p>
         </div>
     </div>
 
-    <!-- Mensaje Troll Toast con fondo vino oscuro y texto claro -->
+    <!-- Mensaje Troll Toast -->
     <div id="troll-toast" class="fixed bottom-6 bg-[#1a0509]/95 backdrop-blur-md border border-rose-900 text-rose-200 px-5 py-2.5 rounded-full shadow-lg text-sm font-bold pointer-events-none opacity-0 transition-opacity duration-300 z-50 flex items-center gap-2">
         <span>Abrelo andale 🥺👉🏻👈🏻</span>
     </div>
 
+    <!-- Script de YouTube Iframe API para detectar cuando termina el video -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
+        let player;
+
+        // Esta función la llama automáticamente la API de YouTube cuando carga
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('surprise-video', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // Detecta los cambios de estado del video
+        function onPlayerStateChange(event) {
+            // El estado 0 significa que el video HA TERMINADO
+            if (event.data === YT.PlayerState.ENDED) {
+                document.getElementById('screen-white').classList.add('hidden');
+                document.getElementById('final-screen').classList.remove('hidden');
+            }
+        }
+
         function teleportButton(btn) {
             const padding = 20;
             const btnWidth = btn.offsetWidth || 120;
@@ -366,7 +357,6 @@
             const mainContainer = document.getElementById('main-container');
 
             envelope.classList.add('open');
-
             document.body.style.background = 'linear-gradient(-45deg, #1a0509, #330a11, #4c0f1a, #2a080c)';
 
             setTimeout(() => {
@@ -387,7 +377,6 @@
             const explosionOverlay = document.getElementById('explosion-overlay');
             
             btn.disabled = true;
-
             mainContainer.classList.add('shake-hard');
 
             setTimeout(() => {
@@ -400,20 +389,7 @@
 
             setTimeout(() => {
                 const whiteScreen = document.getElementById('screen-white');
-                const videoEl = document.getElementById('surprise-video');
-
                 whiteScreen.classList.remove('hidden');
-                videoEl.classList.remove('hidden');
-
-                videoEl.play().catch(error => {
-                    console.log("El navegador requiere reproducción manual de video.", error);
-                });
-
-                videoEl.onended = function() {
-                    videoEl.classList.add('hidden');
-                    document.getElementById('final-screen').classList.remove('hidden');
-                };
-
             }, 2000);
         }
     </script>
