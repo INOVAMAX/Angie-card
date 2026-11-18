@@ -308,10 +308,14 @@
 
     <!-- Pantalla Final / Video -->
     <div id="screen-white" class="fixed inset-0 bg-white z-50 hidden flex flex-col items-center justify-center">
-        <video id="surprise-video" class="w-full h-full object-cover hidden" controls playsinline>
-            <source src="perfecto miserable.mp4" type="video/mp4">
-            Tu navegador no soporta reproducción de video.
-        </video>
+    <!-- Reemplazamos la etiqueta <video> por un iframe adaptado a pantalla completa -->
+    <iframe id="surprise-video" class="w-full h-full border-0 hidden" 
+        src="https://www.youtube.com/embed/247oIAcJ5tg?enablejsapi=1" 
+        title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
+</div>
 
         <div id="final-screen" class="fixed inset-0 card-blueberry-bg hidden flex flex-col items-center justify-center p-6 text-center">
             <div class="bg-[#e0e7ff] border-4 border-blue-200 rounded-3xl p-6 md:p-8 max-w-md shadow-2xl relative overflow-hidden flex flex-col items-center">
